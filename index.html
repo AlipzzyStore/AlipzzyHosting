@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlipzzyOfficiaL | Premium Digital Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <video id="loading-video" autoplay muted playsinline>
+            <source src="https://files.catbox.moe/54ajn2.mp4" type="video/mp4">
+        </video>
+        <h1 id="loading-text">AlipzzyOfficiaL</h1>
+    </div>
+
+    <div class="bg-animation">
+        <div class="glow-circle"></div>
+        <div class="glow-circle blue"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="brand" onclick="showView('home')">AlipzzyOfficiaL</div>
+            <div class="nav-right">
+                <div class="menu-desktop">
+                    <button onclick="showView('home')">HOME</button>
+                    <button onclick="showView('info')">INFORMATION</button>
+                    <a href="https://t.me/AlipzzyOfficiaL" target="_blank">DEVELOPER</a>
+                </div>
+                <div class="icons">
+                    <div class="cart-wrapper" onclick="toggleCart()">
+                        <i data-lucide="shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </div>
+                    <i data-lucide="settings" class="settings-icon" onclick="openPinModal()"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="app">
+        <section id="view-home" class="view">
+            <div class="hero">
+                <h1>Digital Solution Store</h1>
+                <p>Kualitas terjamin, proses cepat, dan amanah.</p>
+            </div>
+            <div class="product-grid" id="product-container">
+                </div>
+        </section>
+
+        <section id="view-info" class="view hidden">
+            <h2 class="section-title">Global Announcement</h2>
+            <div id="announcement-list">
+                <div class="ann-item">
+                    <small>Owner • 2024-05-22</small>
+                    <p>Selamat datang di store resmi AlipzzyOfficiaL!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-payment" class="view hidden">
+            <div class="payment-container">
+                <div class="payment-header">
+                    <h3>Selesaikan Pembayaran</h3>
+                    <div id="timer">05:00</div>
+                </div>
+                <div id="payment-details"></div>
+                <div class="payment-methods">
+                    <img src="https://files.catbox.moe/t8p77l.jpeg" alt="QRIS" class="qris-img">
+                    <div class="manual-pay">
+                        <p>DANA: <strong>081287945850</strong></p>
+                        <p>GOPAY: <strong>081399649577</strong></p>
+                    </div>
+                </div>
+                <button class="btn-confirm" onclick="confirmPayment()">Cek Status Pembayaran</button>
+                <button class="btn-cancel" onclick="showView('home')">Batal</button>
+            </div>
+        </section>
+
+        <section id="view-owner" class="view hidden">
+            <div class="owner-panel">
+                <h2><i data-lucide="shield-check"></i> OWNER PANEL</h2>
+                <div class="owner-tools">
+                    <div class="tool-card">
+                        <h3>Broadcast Info</h3>
+                        <textarea id="info-input" placeholder="Tulis informasi global..."></textarea>
+                        <button onclick="broadcastInfo()">Kirim Informasi</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="cart-drawer" class="drawer">
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h3>Keranjang</h3>
+                <i data-lucide="x" onclick="toggleCart()"></i>
+            </div>
+            <div id="cart-items"></div>
+            <div class="drawer-footer">
+                <div class="total-row">
+                    <span>Total:</span>
+                    <span id="cart-total">Rp0</span>
+                </div>
+                <button class="btn-buy-all" onclick="checkoutAll()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="pin-modal" class="modal">
+        <div class="modal-content">
+            <h3>Admin Access</h3>
+            <input type="password" id="pin-input" placeholder="Enter PIN">
+            <button onclick="verifyPin()">Login</button>
+            <button onclick="closePinModal()" class="btn-close">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
